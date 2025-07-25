@@ -1,0 +1,52 @@
+What is Caesar Cipher?
+It’s a classical encryption technique where:
+
+Each letter is shifted a fixed number of positions in the alphabet.
+
+Example:
+With shift = 3:
+'A' → 'D', 'B' → 'E', ..., 'Z' → 'C'
+
+Two Modes
+Encoding: Shift letters forward.
+
+Decoding: Shift letters backward.
+
+Rules
+Only letters are shifted.
+
+Spaces, punctuation, and numbers stay the same.
+
+The alphabet is circular (after 'Z', comes 'A').
+
+Goal:
+
+Encrypt: "Hello World!" → "Khoor Zruog!"
+
+Decrypt: "Khoor Zruog!" → "Hello World!"
+
+
+Normalize Shift
+shift = shift % 26
+Keeps shift within 0–25.
+
+Set Mode
+If mode == 'decode', use shift = -shift.
+
+Loop Through Message
+
+If char.isalpha():
+
+Find base: 'A' or 'a'
+
+Shift character:
+
+python
+Copy
+Edit
+shifted = (ord(char) - base + shift) % 26 + base
+Add to result.
+
+Else: Add char as-is.
+
+Return Result
